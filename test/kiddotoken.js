@@ -12,7 +12,10 @@ const KiddoToken = artifacts.require('../../contracts/KiddoToken.sol');
 
     it('get total supply', async function() {
      const contract = await KiddoToken.deployed();
+     const totalSupply = await contract.totalSupply_.call();
+     const tS = web3.eth.getBalance;
      // await contract.deposit(accounts[0], {value: 1e+18, from: accounts[1]});
-     assert.equal(web3.eth.getBalance(contract.address), 1e+18, "amount did not match");
+     //assert.equal(tS, 1e+18, "amount did not match1");
+     assert.equal(totalSupply, 10000, "amount did not match");
    });
   });
